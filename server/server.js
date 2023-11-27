@@ -20,7 +20,7 @@ connectDB();
 //rest object
 const app = express();
 // Define an array of allowed domains
-const allowedOrigins = ["http://raviecom.site", "http://www.raviecom.site"];
+const allowedOrigins = ["https://raviecom.site", "https://www.raviecom.site"];
 
 //middelwares
 app.use(cors({
