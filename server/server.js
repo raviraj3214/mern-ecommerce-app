@@ -19,10 +19,12 @@ connectDB();
 // const __dirname = path.dirname(__filename);
 //rest object
 const app = express();
+// Define an array of allowed domains
+const allowedOrigins = ["http://raviecom.site", "http://www.raviecom.site"];
 
 //middelwares
 app.use(cors({
-  origin: "http://raviecom.site",
+  origin: allowedOrigins,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // enable set cookie
 }));
