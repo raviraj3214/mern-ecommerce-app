@@ -31,19 +31,14 @@ jobs:
         port: ${{ secrets.PORT }}
         key: ${{ secrets.SSHKEY }}
         script: |
-          # Check if the mern-ecommerce-app folder exists
-          if [ ! -d "mern-ecommerce-app" ]; then
-            # Clone the repository if it doesn't exist
-            git clone https://github.com/raviraj3214/mern-ecommerce-app.git mern-ecommerce-app
-          else
-            # Pull the latest changes if the folder exists
-            cd mern-ecommerce-app
-            git pull origin main
-            cd ..
-          fi
+          # Pull the latest changes if the folder exists
+          cd mern-ecommerce-app
+          git pull origin main
+          
+          
 
           # Navigate to the server directory
-          cd mern-ecommerce-app/server
+          cd server
 
           # Install server dependencies
           pnpm install
