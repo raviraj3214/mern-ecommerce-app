@@ -49,10 +49,10 @@ jobs:
           pnpm install
 
           # Stop PM2 process
-          pm2 stop raviecom || true
+          pm2 delete raviecom || true
 
           # Start PM2 process
-          pm2 start raviecom || true
+          pm2 start server.js --name raviecom || true
 
           # Navigate to the client directory
           cd .. && cd client
