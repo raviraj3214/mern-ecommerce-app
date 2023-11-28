@@ -1,0 +1,69 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js, pnpm, and pm2
+      run: |
+        curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        npm install -g pnpm
+        npm install -g pm2
+
+    - name: Install dependencies (Client)
+      run: cd client && pnpm install && pnpm run build
+
+    - name: Install dependencies (Server)
+      run: cd .. && cd server && pnpm install
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: SSH into VPS and run commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.SSHKEY }}
+        script: |
+          # Update server code
+          git pull origin main
+
+          # Navigate to the server directory
+          cd server
+
+          # Install server dependencies
+          pnpm install
+
+          # Stop PM2 process
+          pm2 stop raviecom || true
+
+          # Start PM2 process
+          pm2 start raviecom || true
+
+          # Navigate to the client directory
+          cd .. && cd client
+
+          # Install client dependencies
+          pnpm install
+
+          # Build client
+          pnpm run build
