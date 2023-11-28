@@ -52,8 +52,7 @@ jobs:
             cd .. && cd client
   
             # Install client dependencies
-            pnpm install
+            pnpm install && pnpm run build
   
-            # Build client
-            pnpm run build
+           
   
