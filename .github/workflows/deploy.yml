@@ -13,19 +13,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # - name: Install Node.js, pnpm, and pm2
-    #   run: |
-    #     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    #     sudo apt-get install -y nodejs
-    #     npm install -g pnpm
-    #     npm install -g pm2
-
-    # - name: Install dependencies (Client)
-    #   run: cd client && pnpm install && pnpm run build
-
-    # - name: Install dependencies (Server)
-    #   run: cd .. && cd server && pnpm install
-
   deploy:
     runs-on: ubuntu-latest
 
@@ -44,11 +31,19 @@ jobs:
         port: ${{ secrets.PORT }}
         key: ${{ secrets.SSHKEY }}
         script: |
-          # Update server code
-          git pull origin main
+          # Check if the mern-ecommerce-app folder exists
+          if [ ! -d "mern-ecommerce-app" ]; then
+            # Clone the repository if it doesn't exist
+            git clone https://github.com/raviraj3214/mern-ecommerce-app.git mern-ecommerce-app
+          else
+            # Pull the latest changes if the folder exists
+            cd mern-ecommerce-app
+            git pull origin main
+            cd ..
+          fi
 
           # Navigate to the server directory
-          cd server
+          cd mern-ecommerce-app/server
 
           # Install server dependencies
           pnpm install
