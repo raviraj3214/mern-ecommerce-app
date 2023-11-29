@@ -15,6 +15,7 @@ echo "New changes copied to server !"
 pwd
 echo "change directory"
 cd client
+npm install -g pnpm
 
 echo "Installing Dependencies..."
 pnpm install
