@@ -6,24 +6,24 @@ echo "Deployment started..."
 # Pull the latest version of the app
 echo "change directory"
 ls
-# cd ..
+cd ..
 
-# git fetch
-# git merge origin/main -m "Merge remote-tracking branch into main"
+git fetch
+git merge origin/main -m "Merge remote-tracking branch into main"
 
-# echo "New changes copied to server !"
+echo "New changes copied to server !"
 
-# echo "change directory"
-# cd client
+echo "change directory"
+cd client
 
-# echo "Installing Dependencies..."
-# pnpm install --yes
+echo "Installing Dependencies..."
+pnpm install --yes
 
-# echo "Creating Production Build..."
-# # For ReactJS VueJS and Nuxt JS
-# pnpm run build
+echo "Creating Production Build..."
+# For ReactJS VueJS and Nuxt JS
+pnpm run build
 
-# # For NextJS
-# # npm run export
+# For NextJS
+# npm run export
 
-# echo "Deployment Finished!"
+echo "Deployment Finished!"
