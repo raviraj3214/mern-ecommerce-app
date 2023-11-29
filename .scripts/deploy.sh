@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-chmod +x "$(basename "$0")"
 echo "Deployment started..."
 
 # Pull the latest version of the app
