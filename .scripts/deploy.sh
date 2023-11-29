@@ -2,7 +2,6 @@
 set -e
 set -x
 echo "Deployment started..."
-git update-index --add --chmod=+x deploy.sh
 
 # Pull the latest version of the app
 echo "change directory"
