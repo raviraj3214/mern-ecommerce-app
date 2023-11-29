@@ -27,5 +27,5 @@ npm run build
 # npm run export
 cd ..
 
-echo "sdcvbdfgdgfchvbdcvghbnsdxfcgvhbjnmdfcgvhbjn"
+echo "sdcvbdfgdgfchvbdcvghbnsdxfcgvhbjnmdfcgvhbjnfghv"
 echo "Deployment Finished!"
