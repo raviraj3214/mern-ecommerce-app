@@ -5,6 +5,7 @@ echo "Deployment started..."
 
 # Pull the latest version of the app
 echo "change directory"
+ls
 cd ..
 
 git pull origin main
