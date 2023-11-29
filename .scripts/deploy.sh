@@ -25,7 +25,6 @@ echo "Creating Production Build..."
 # For ReactJS VueJS and Nuxt JS
 pnpm run build
 
-# For NextJS
 # npm run export
 cd ..
 
