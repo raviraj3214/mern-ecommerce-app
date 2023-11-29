@@ -16,7 +16,7 @@ pwd
 echo "change directory"
 cd client
 pwd
-npm install -g pnpm
+
 
 echo "Installing Dependencies..."
 pnpm install
