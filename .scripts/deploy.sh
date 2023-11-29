@@ -19,11 +19,11 @@ pwd
 
 
 echo "Installing Dependencies..."
-pnpm install
+npm install
 
 echo "Creating Production Build..."
 # For ReactJS VueJS and Nuxt JS
-pnpm run build
+npm run build
 
 # npm run export
 cd ..
