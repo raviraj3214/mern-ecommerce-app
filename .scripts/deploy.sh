@@ -9,7 +9,8 @@ ls
 # cd ..
 
 # git fetch
-# git merge
+# git merge origin/main -m "Merge remote-tracking branch into main"
+
 # echo "New changes copied to server !"
 
 # echo "change directory"
