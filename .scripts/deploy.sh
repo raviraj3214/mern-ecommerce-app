@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 echo "Deployment started..."
 git update-index --add --chmod=+x deploy.sh
 
