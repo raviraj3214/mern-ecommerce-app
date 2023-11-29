@@ -25,5 +25,7 @@ pnpm run build
 
 # For NextJS
 # npm run export
+cd ..
+
 
 echo "Deployment Finished!"
