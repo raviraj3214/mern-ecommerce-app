@@ -8,7 +8,8 @@ echo "change directory"
 ls
 # cd ..
 
-# git pull origin main
+# git fetch
+# git merge
 # echo "New changes copied to server !"
 
 # echo "change directory"
