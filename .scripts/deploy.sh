@@ -28,5 +28,5 @@ pnpm run build
 # npm run export
 cd ..
 
-echo "sdcvb"
+echo "sdcvbdfg"
 echo "Deployment Finished!"
