@@ -19,4 +19,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "pwd"
+          script: "cd /root/mern-ecommerce-app/ && /.scripts/deploy.sh"
