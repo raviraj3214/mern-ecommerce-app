@@ -17,7 +17,7 @@ echo "change directory"
 cd client
 
 echo "Installing Dependencies..."
-pnpm install --yes
+pnpm install
 
 echo "Creating Production Build..."
 # For ReactJS VueJS and Nuxt JS
