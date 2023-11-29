@@ -1,11 +1,12 @@
 name: deploy
 
 # Trigger the workflow on push and
-# pull request events on the master branch
+# pull request events on the main branch
 on:
   push:
-    branches: ["main"]  
-# Authenticate to the the server via ssh
+    branches: ["main"]
+
+# Authenticate to the server via ssh
 # and run our deployment script
 jobs:
   deploy:
@@ -18,8 +19,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.10.0'
-      
-      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install pm2
+        run: npm install -g pm2
+
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
