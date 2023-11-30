@@ -34,8 +34,8 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
           script: |
-           cd mern-ecommerce-app/.scripts
-           ./deploy.sh
-           pwd
-           cd ../client/.scripts
-           ./clientdeploy.sh
+            cd mern-ecommerce-app/.scripts
+            ./deploy.sh
+            pwd
+            cd ../client/.scripts
+            ./clientdeploy.sh
