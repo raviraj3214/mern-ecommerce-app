@@ -1,13 +1,9 @@
 name: deploy
 
-# Trigger the workflow on push and
-# pull request events on the main branch
 on:
   push:
     branches: ["main"]
 
-# Authenticate to the server via ssh
-# and run our deployment script
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -37,5 +33,15 @@ jobs:
             cd mern-ecommerce-app/.scripts
             ./deploy.sh
             pwd
-            cd ../client/.scripts
+
+      - name: Deploy Client to Server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSHKEY }}
+          script: |
+            cd mern-ecommerce-app/client/.scripts
             ./clientdeploy.sh
+            pwd
