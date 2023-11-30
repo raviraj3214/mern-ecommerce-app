@@ -36,5 +36,6 @@ jobs:
           script: |
            cd mern-ecommerce-app/.scripts
            ./deploy.sh
+           pwd
            cd ../client/.scripts
            ./clientdeploy.sh
