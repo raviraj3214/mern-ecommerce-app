@@ -15,11 +15,11 @@ echo "change directory"
 
 
 echo "Installing Dependencies..."
-npm install
+pnpm install
 
 echo "Creating Production Build..."
 # For ReactJS VueJS and Nuxt JS
-npm run build
+pnpm run build
 
 # npm run export
 cd ..
