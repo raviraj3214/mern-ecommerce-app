@@ -18,9 +18,9 @@ jobs:
 
       - name: Install pnpm
         run: npm install -g pnpm
-
-      - name: Install pm2
-        run: npm install -g pm2
+     
+      - name: directory name
+        run: pwd   
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@v0.1.5
@@ -29,19 +29,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: |
-            cd mern-ecommerce-app/.scripts
-            ./deploy.sh
-            pwd
+          script: pwd
 
-      - name: Deploy Client to Server
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
-          script: |
-            cd mern-ecommerce-app/client/.scripts
-            ./clientdeploy.sh
-            pwd
+      
