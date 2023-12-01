@@ -10,25 +10,37 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.10.0'
+          node-version: '20.10.0' # Choose a valid Node.js version
 
       - name: Install pnpm
         run: npm install -g pnpm
-     
-      - name: directory name
-        run: pwd   
+
+      - name: Change to client directory
+        run: cd client && pnpm install && pnpm run build
+
+      - name: Change to server directory
+        run: cd ../server && pnpm install && cd ..
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "raviraj32140@gmail.com"
+          git config --global user.name "raviraj3214"
+          git checkout -b master
+          git add -A
+          git commit -m "Upload build files"
+          git push origin master
 
       - name: Deploy to Server
-        uses: appleboy/ssh-action@v0.1.5
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: ls
-
-      
+          script: git fetch && git merge origin/master
