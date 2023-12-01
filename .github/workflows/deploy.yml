@@ -34,10 +34,10 @@ jobs:
         run: |
           git config --global user.email "raviraj32140@gmail.com"
           git config --global user.name "raviraj3214"
-          git checkout -b deploy
+          git checkout -b main
           git add -A
           git commit -m "Upload build files"
-          git push origin deploy
+          git push origin main
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
@@ -46,4 +46,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: git fetch && git merge origin/deploy
+          script: git merge origin/main -m "Merge remote-tracking branch into main"
