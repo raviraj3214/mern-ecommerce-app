@@ -28,7 +28,7 @@ jobs:
         run: cd client && pnpm install && pnpm run build
 
       - name: Change to server directory
-        run: cd .. cd server && pnpm install && cd ..
+        run: cd .. && cd server && pnpm install && cd ..
 
       - name: Commit and Push Changes
         run: |
