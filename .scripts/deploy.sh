@@ -14,5 +14,5 @@ git merge origin/main -m "Merge remote-tracking branch into main"
 echo "New changes copied to server !"
 
 
-echo "sdcvbdfvhbjghbndfghghmkjnfghv"
+echo "sdcvbdfvhbjghbndfghghmkjsdfghjnfghv"
 echo "Deployment Finished!"
